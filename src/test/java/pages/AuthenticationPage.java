@@ -43,14 +43,14 @@ public class AuthenticationPage {
         return this;
     }
 
-    @Step("Enter email for login")
+    @Step("Enter email {email} for login")
     public AuthenticationPage enterEmail(String email) {
         log.info("Entering the email for login");
         $(By.xpath(String.format(EMAIL_FIELD))).sendKeys(email);
         return this;
     }
 
-    @Step("Enter password for login")
+    @Step("Enter password {password} for login")
     public AuthenticationPage enterPassword(String password) {
         log.info("Enter the password for login");
         $(By.xpath(String.format(PASSWORD_FIELD))).sendKeys(password);
@@ -65,7 +65,7 @@ public class AuthenticationPage {
 
     @Step("Click Sing in button")
     public void clickSingInButton() {
-        log.info("Clicking the create account button");
+        log.info("Click the create account button");
         $(By.xpath(String.format(SING_IN_BUTTON))).click();
     }
 

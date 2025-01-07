@@ -18,7 +18,7 @@ public class BaseTests {
     SingInSteps singInSteps;
 
     String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
-    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String email = System.getProperty("email", PropertyReader.getProperty("email"));
     String password = System.getProperty("password", PropertyReader.getProperty("password"));
     String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
 
