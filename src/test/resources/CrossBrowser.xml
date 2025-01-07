@@ -11,10 +11,10 @@
             <parameter name="browser" value="fireFox"/>
         </classes>
     </test> <!-- Test -->
-    <test name="Thread#2">
-        <classes>
-            <class name="tests.SingInTests"/>
-            <parameter name="browser" value="edge"/>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread#2">-->
+<!--        <classes>-->
+<!--            <class name="tests.SingInTests"/>-->
+<!--            <parameter name="browser" value="edge"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
 </suite>

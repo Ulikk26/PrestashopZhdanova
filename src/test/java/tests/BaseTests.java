@@ -25,16 +25,16 @@ public class BaseTests {
 
     @BeforeMethod
     public void setUp() {
-//        FirefoxOptions options = new FirefoxOptions();
-        ChromeOptions options = new ChromeOptions();
+        FirefoxOptions options = new FirefoxOptions();
+ //       ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--allow-insecure-localhost");
         options.addArguments("--disable-web-security");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--unsafely-treat-insecure-origin-as-secure=http://prestashop.qatestlab.com.ua");
         Configuration.browserCapabilities = options;
-        Configuration.browser = "chrome";
- //       Configuration.browser = "firefox";
+ //       Configuration.browser = "chrome";
+        Configuration.browser = "firefox";
         Configuration.headless = false;
         Configuration.timeout = 10000;
         Configuration.clickViaJs = true;
