@@ -28,6 +28,7 @@ public class BaseTests {
         FirefoxOptions options = new FirefoxOptions();
  //       ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
+        options.addArguments("--headless");
         options.addArguments("--allow-insecure-localhost");
         options.addArguments("--disable-web-security");
         options.addArguments("--ignore-certificate-errors");
