@@ -1,8 +1,10 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Builder;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import models.PersonalInformation;
 import org.openqa.selenium.By;
@@ -12,18 +14,19 @@ import wrappers.RadioButton;
 
 import static com.codeborne.selenide.Selenide.$;
 
+@Data
 @Log4j2
 public class PersonalInformationPage {
 
-    private static final String REGISTER_BUTTON = "//button[@id='submitAccount']",
-            EMAIL = "//input[@id='email']",
-            CHECKBOX_NEWSLETTERS = "//input[@name='newsletter']",
-            CHECKBOX_OFFERS = "//input[@name='optin']";
+    private  final SelenideElement REGISTER_BUTTON = $(By.xpath("//button[@id='submitAccount']")),
+            EMAIL =$(By.xpath( "//input[@id='email']")),
+            CHECKBOX_NEWSLETTERS = $(By.xpath("//input[@name='newsletter']")),
+            CHECKBOX_OFFERS =$(By.xpath( "//input[@name='optin']"));
 
     @Step("Create account page is opened")
     public PersonalInformationPage isPageOpened() {
         log.info("My Personal Information page is opened");
-        $(By.xpath(String.format(REGISTER_BUTTON))).shouldBe(Condition.visible);
+        $(REGISTER_BUTTON).shouldBe(Condition.visible);
         return this;
     }
 
@@ -49,25 +52,18 @@ public class PersonalInformationPage {
     @Step("Click newsletter checkbox")
     public void clickAgreementNewslettersCheckbox() {
         log.info("Click the newsletters checkbox");
-        $(By.xpath(String.format(CHECKBOX_NEWSLETTERS))).click();
+        $(CHECKBOX_NEWSLETTERS).click();
     }
 
     @Step("Click offers checkbox")
     public void clickOffersCheckbox() {
         log.info("Click the Offers checkbox");
-        $(By.xpath(String.format(CHECKBOX_OFFERS))).click();
+        $(CHECKBOX_OFFERS).click();
     }
 
     @Step("Click Register button ")
     public void clickRegisterButton() {
         log.info("Click the register button");
-        $(By.xpath(String.format(REGISTER_BUTTON))).click();
-    }
-
-    @Step("Get the email")
-    public WebElement getEmail() {
-        log.info("Get the email");
-        WebElement email = $(By.xpath(String.format(EMAIL))).shouldBe(Condition.visible);
-        return email;
+        $(REGISTER_BUTTON).click();
     }
 }

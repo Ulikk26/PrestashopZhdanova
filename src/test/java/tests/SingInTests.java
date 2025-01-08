@@ -11,9 +11,15 @@ public class SingInTests extends BaseTests {
         singInSteps.login(email, password);
     }
 
-    @Test(testName = "Verifying error massage when login with invalid password", description = "Verifying error massage when login with invalid password")
-    @Description("Verifying error massage when login with invalid password")
+    @Test(testName = "Verifying error massage when login with wrong password", description = "Verifying error massage when login with wrong password")
+    @Description("Verifying error massage when login with wrong password")
     public void checkErrorMassageLoginWithInvalidData() {
         singInSteps.errorLoginMassage(email, wrongPassword);
+    }
+
+    @Test(testName = "Verifying logout from account", description = "Verifying logout from account")
+    @Description("Verifying logout from account")
+    public void checkLogoutFromAccount() {
+        singInSteps.logoutFromAccount(email,password);
     }
 }
