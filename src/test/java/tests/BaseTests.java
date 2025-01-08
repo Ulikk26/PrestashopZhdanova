@@ -49,7 +49,7 @@ public class BaseTests {
         } else if (browser.equalsIgnoreCase("fireFox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--start-maximized");
-       //     options.addArguments("--headless");
+            options.addArguments("--headless");
             Configuration.browserCapabilities = options;
             Configuration.browser = "firefox";
             Configuration.headless = false;
