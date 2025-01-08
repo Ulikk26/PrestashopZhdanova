@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
@@ -14,13 +15,13 @@ import static com.codeborne.selenide.Selenide.open;
 @Data
 public class AuthenticationPage {
 
-    private static final String EMAIL_CREATED_FIELD = "//input[@id='email_create']",
-            CREATE_ACCOUNT_BUTTON = "//button[@id='SubmitCreate']",
-            FORM_TITLE = "//h3[@class='page-subheading']",
-            EMAIL_FIELD = "//input[@id='email']",
-            PASSWORD_FIELD = "//input[@id='passwd']",
-            SING_IN_BUTTON = "//button[@id='SubmitLogin']",
-            ERROR_MASSAGE = "//div[@class='alert alert-danger']//li";
+    private final SelenideElement EMAIL_CREATED_FIELD =$(By.xpath("//input[@id='email_create']")) ,
+            CREATE_ACCOUNT_BUTTON =$ (By.xpath("//button[@id='SubmitCreate']")),
+            FORM_TITLE =$(By.xpath( "//h3[@class='page-subheading']")),
+            EMAIL_FIELD =$(By.xpath( "//input[@id='email']")),
+            PASSWORD_FIELD =$(By.xpath( "//input[@id='passwd']")),
+            SING_IN_BUTTON = $(By.xpath("//button[@id='SubmitLogin']")),
+            ERROR_MASSAGE = $(By.xpath("//div[@class='alert alert-danger']//li"));
 
     @Step("Open Authentication page")
     public AuthenticationPage openAuthenticationPage() {
@@ -32,54 +33,47 @@ public class AuthenticationPage {
     @Step("Authentication page is opened")
     public AuthenticationPage isPageOpened() {
         log.info("Authentication page is opened");
-        $(By.xpath(String.format(CREATE_ACCOUNT_BUTTON))).shouldBe(Condition.visible);
+        $(CREATE_ACCOUNT_BUTTON).shouldBe(Condition.visible);
         return this;
     }
 
     @Step("Enter new email for registration")
     public AuthenticationPage enterNewEmail(String email) {
         log.info("Enter new email for registration");
-        $(By.xpath(String.format(EMAIL_CREATED_FIELD))).sendKeys(email);
+        $(EMAIL_CREATED_FIELD).sendKeys(email);
         return this;
     }
 
     @Step("Enter email {email} for login")
     public AuthenticationPage enterEmail(String email) {
         log.info("Entering the email for login");
-        $(By.xpath(String.format(EMAIL_FIELD))).sendKeys(email);
+        $(EMAIL_FIELD).sendKeys(email);
         return this;
     }
 
     @Step("Enter password {password} for login")
     public AuthenticationPage enterPassword(String password) {
         log.info("Enter the password for login");
-        $(By.xpath(String.format(PASSWORD_FIELD))).sendKeys(password);
+        $(PASSWORD_FIELD).sendKeys(password);
         return this;
     }
 
     @Step("Click create account button")
     public void clickCreateAccountButton() {
         log.info("Click the create account button");
-        $(By.xpath(String.format(CREATE_ACCOUNT_BUTTON))).click();
+        $(CREATE_ACCOUNT_BUTTON).click();
     }
 
     @Step("Click Sing in button")
     public void clickSingInButton() {
         log.info("Click the create account button");
-        $(By.xpath(String.format(SING_IN_BUTTON))).click();
-    }
-
-    @Step("Get the form title")
-    public WebElement getFormTitle() {
-        log.info("Get the name of form");
-        WebElement formTitle = $(By.xpath(String.format(FORM_TITLE))).shouldBe(Condition.visible);
-        return formTitle;
+        $(SING_IN_BUTTON).click();
     }
 
     @Step("Ger error massage")
     public WebElement getErrorMassage() {
         log.info("Get the error massage");
-        WebElement errorMassage = $(By.xpath(String.format(ERROR_MASSAGE))).shouldBe(Condition.visible);
+        WebElement errorMassage = $(ERROR_MASSAGE).shouldBe(Condition.visible);
         return errorMassage;
     }
 }

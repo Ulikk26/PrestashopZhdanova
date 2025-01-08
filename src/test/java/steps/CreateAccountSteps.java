@@ -3,15 +3,13 @@ package steps;
 import io.qameta.allure.Step;
 import models.PersonalInformation;
 import org.testng.Assert;
-import pages.AuthenticationPage;
-import pages.MainPage;
-import pages.MyAccountPage;
-import pages.PersonalInformationPage;
+import pages.*;
 
 
 public class CreateAccountSteps {
 
     MainPage mainPage;
+    HeaderUserInfoPage headerUserInfoPage;
     AuthenticationPage authenticationPage;
     PersonalInformationPage personalInformationPage;
     MyAccountPage myAccountPage;
@@ -21,14 +19,15 @@ public class CreateAccountSteps {
         authenticationPage = new AuthenticationPage();
         personalInformationPage = new PersonalInformationPage();
         myAccountPage = new MyAccountPage();
+        headerUserInfoPage = new HeaderUserInfoPage();
     }
 
     @Step("Open 'CREATE AN ACCOUNT' page")
     public void openCreateAccountPage() {
         mainPage.openMainPage();
         mainPage.isPageOpened();
-        mainPage.clickLoginButton();
-        String expectedName = authenticationPage.getFormTitle().getText();
+        headerUserInfoPage.clickLoginButton();
+        String expectedName = authenticationPage.getFORM_TITLE().getText();
         Assert.assertEquals(expectedName, "CREATE AN ACCOUNT", "Expected name does not on the page");
     }
 
@@ -38,7 +37,7 @@ public class CreateAccountSteps {
         authenticationPage.enterNewEmail(email);
         authenticationPage.clickCreateAccountButton();
         personalInformationPage.isPageOpened();
-        String attributeText = personalInformationPage.getEmail().getAttribute("value");
+        String attributeText = personalInformationPage.getEMAIL().getAttribute("value");
         Assert.assertEquals(attributeText, email, "Expected email does not on the page");
     }
 
@@ -48,7 +47,7 @@ public class CreateAccountSteps {
         personalInformationPage.createAccount(personalInformation);
         personalInformationPage.clickRegisterButton();
         myAccountPage.isPageOpened();
-        String successMassageText = myAccountPage.geSuccessMassage().getText();
+        String successMassageText = myAccountPage.getSUCCESS_ALERT().getText();
         Assert.assertEquals(successMassageText, "Your account has been created.", "Expected massage does not on the page");
     }
 }
