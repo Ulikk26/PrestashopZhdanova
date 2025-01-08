@@ -35,24 +35,22 @@ public class BaseTests {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
             options.addArguments("--allow-insecure-localhost");
             options.addArguments("--disable-web-security");
             options.addArguments("--ignore-certificate-errors");
             options.addArguments("--unsafely-treat-insecure-origin-as-secure=http://prestashop.qatestlab.com.ua");
             Configuration.browserCapabilities = options;
             Configuration.browser = "chrome";
-            Configuration.headless = false;
+            Configuration.headless = true;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
             Configuration.baseUrl = baseUrl;
         } else if (browser.equalsIgnoreCase("fireFox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
             Configuration.browserCapabilities = options;
             Configuration.browser = "firefox";
-            Configuration.headless = false;
+            Configuration.headless = true;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
             Configuration.baseUrl = baseUrl;
