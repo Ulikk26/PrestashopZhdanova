@@ -56,7 +56,6 @@ public class BaseTests {
             Configuration.baseUrl = baseUrl;
         }
 
-
         createAccountSteps = new CreateAccountSteps();
         singInSteps = new SingInSteps();
 
@@ -68,6 +67,7 @@ public class BaseTests {
 
     @AfterMethod(alwaysRun = true)
     public void close() {
+        log.info("Close browser");
         closeWebDriver();
     }
 }
