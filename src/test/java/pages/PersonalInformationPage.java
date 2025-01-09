@@ -22,11 +22,12 @@ public class PersonalInformationPage {
 
     @Step ("Get email from email input")
     public String  getEmail(){
+        log.info("Getting the email from email input");
         String email=$(EMAIL).getAttribute("value");
         return email;
     }
 
-    @Step("Create account page is opened")
+    @Step("My Personal Information page is opened")
     public PersonalInformationPage isPageOpened() {
         log.info("My Personal Information page is opened");
         $(REGISTER_BUTTON).shouldBe(Condition.visible);

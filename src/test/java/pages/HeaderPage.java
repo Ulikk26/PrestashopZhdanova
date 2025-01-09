@@ -15,15 +15,15 @@ public class HeaderPage {
     private final By LOGIN_BUTTON = By.cssSelector("[class=login]"),
             LOGOUT_BUTTON = By.cssSelector("[class=logout]"),
             HEADER_USER_INFO = By.cssSelector("[class=header_user_info]");
-    private final String CATEGORY_BUTTON = "//a[@title='%S']";
+    private final String CATEGORY_BUTTON = "//a[@title='%s']";
 
     AuthenticationPage authenticationPage = new AuthenticationPage();
     MyAccountPage myAccountPage =new MyAccountPage();
     ProductsPage productsPage = new ProductsPage();
 
-    @Step("Open HeaderUserInfoPage page")
+    @Step("Open HeaderPage page")
     public HeaderPage openHeaderPage() {
-        log.info("Open the HeaderUserInfoPage");
+        log.info("Open the HeaderPage");
         open("http://prestashop.qatestlab.com.ua/ru/");
         return this;
     }
@@ -31,12 +31,12 @@ public class HeaderPage {
     @Step ("Logout button is displayed")
     public void  logoutButtonIsDisplayed(){
         log.info("Logout button is displayed");
-        $(LOGOUT_BUTTON).isDisplayed();
+        $(LOGOUT_BUTTON).shouldBe(Condition.visible);
     }
 
-    @Step("Header User Info is opened")
+    @Step("Header page is opened")
     public HeaderPage isPageOpened() {
-        log.info("Main page is opened");
+        log.info("Header page is opened");
         $(HEADER_USER_INFO).shouldBe(Condition.visible);
         return this;
     }

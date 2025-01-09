@@ -5,14 +5,14 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import steps.CreateAccountSteps;
-import steps.SingInSteps;
+import steps.ProductSteps;
+import steps.SignInSteps;
 import utils.PropertyReader;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -21,7 +21,8 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class BaseTests {
 
     CreateAccountSteps createAccountSteps;
-    SingInSteps singInSteps;
+    SignInSteps signInSteps;
+    ProductSteps productSteps;
 
     String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
     String email = System.getProperty("email", PropertyReader.getProperty("email"));
@@ -50,14 +51,15 @@ public class BaseTests {
             options.addArguments("--start-maximized");
             Configuration.browserCapabilities = options;
             Configuration.browser = "firefox";
-            Configuration.headless = true;
+            Configuration.headless = false;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
             Configuration.baseUrl = baseUrl;
         }
 
         createAccountSteps = new CreateAccountSteps();
-        singInSteps = new SingInSteps();
+        signInSteps = new SignInSteps();
+        productSteps =new ProductSteps();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

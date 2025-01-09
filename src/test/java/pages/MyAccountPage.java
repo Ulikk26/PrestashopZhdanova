@@ -14,15 +14,16 @@ public class MyAccountPage {
     private final By SUCCESS_ALERT = By.xpath("//p[@class='alert alert-success']"),
             HOME_BUTTON = By.xpath("//a[@title='Home']");
 
-    @Step("Login page is opened")
+    @Step("My account page is opened")
     public MyAccountPage isPageOpened() {
         log.info("My account page is opened");
         $(HOME_BUTTON).shouldBe(Condition.visible);
         return this;
     }
 
-    @Step ("Get alert")
+    @Step ("Getting the alert")
     public String  getAlert(){
+        log.info("Getting the alert");
         String alert=$(SUCCESS_ALERT).getText();
         return alert;
     }

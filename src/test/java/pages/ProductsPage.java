@@ -11,12 +11,12 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class ProductsPage {
 
-    private final By CATALOG = By.xpath("//p(text()='Catalog')");
+    private final By CATALOG = By.xpath("//p[text()='Catalog']");
     private final String NAME_OF_PRODUCT = "//a[@title='%s']";
 
     @Step("Products page is opened")
     public ProductsPage isPageOpened() {
-        log.info("Main page is opened");
+        log.info("Products page is opened");
         $(CATALOG).shouldBe(Condition.visible);
         return this;
     }

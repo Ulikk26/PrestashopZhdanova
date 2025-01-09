@@ -19,11 +19,12 @@ public class AuthenticationPage {
             FORM_TITLE =By.xpath( "//h3[@class='page-subheading']"),
             EMAIL_FIELD =By.xpath( "//input[@id='email']"),
             PASSWORD_FIELD =By.xpath( "//input[@id='passwd']"),
-            SING_IN_BUTTON = By.xpath("//button[@id='SubmitLogin']"),
-            ERROR_MASSAGE = By.xpath("//div[@class='alert alert-danger']//li");
+            SIGN_IN_BUTTON = By.xpath("//button[@id='SubmitLogin']"),
+            ERROR_MESSAGE = By.xpath("//div[@class='alert alert-danger']//li");
 
-    @Step ("Get form title")
+    @Step ("Getting the form title")
     public String  getFormTitle(){
+        log.info("Getting the form title");
         String title=$(FORM_TITLE).getText();
         return title;
     }
@@ -69,16 +70,16 @@ public class AuthenticationPage {
         $(CREATE_ACCOUNT_BUTTON).click();
     }
 
-    @Step("Click Sing in button")
-    public void clickSingInButton() {
-        log.info("Click the create account button");
-        $(SING_IN_BUTTON).click();
+    @Step("Click Sign in button")
+    public void clickSignInButton() {
+        log.info("Click Sign in button");
+        $(SIGN_IN_BUTTON).click();
     }
 
-    @Step("Ger error massage")
-    public WebElement getErrorMassage() {
-        log.info("Get the error massage");
-        WebElement errorMassage = $(ERROR_MASSAGE).shouldBe(Condition.visible);
-        return errorMassage;
+    @Step("Ger error message")
+    public WebElement getErrorMessage() {
+        log.info("Get the error message");
+        WebElement errormessage = $(ERROR_MESSAGE).shouldBe(Condition.visible);
+        return errormessage;
     }
 }
