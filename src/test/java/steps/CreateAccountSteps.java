@@ -25,9 +25,9 @@ public class CreateAccountSteps {
         headerPage = new HeaderPage();
     }
 
-    @Step("Open 'CREATE AN ACCOUNT' page")
+    @Step("Open 'Create an account' page")
     public void openCreateAccountPage() {
-        log.info("Opening 'CREATE AN ACCOUNT' page");
+        log.info("Opening 'Create an account' page");
         headerPage.openHeaderPage();
         headerPage.isPageOpened();
         headerPage.clickLoginButton();
@@ -35,9 +35,9 @@ public class CreateAccountSteps {
         Assert.assertEquals(expectedName, "CREATE AN ACCOUNT", "The expected name was not found on the page");
     }
 
-    @Step("Open 'YOUR PERSONAL INFORMATION' page")
+    @Step("Open 'Your personal information' page")
     public void openPersonalInformationPage(String email) {
-        log.info("Opening 'YOUR PERSONAL INFORMATION' page");
+        log.info("Opening 'Your personal information' page");
         openCreateAccountPage();
         authenticationPage.enterNewEmail(email);
         authenticationPage.clickCreateAccountButton();
@@ -53,7 +53,7 @@ public class CreateAccountSteps {
         personalInformationPage.createAccount(personalInformation);
         personalInformationPage.clickRegisterButton();
         myAccountPage.isPageOpened();
-        String successmessageText = myAccountPage.getAlert();
-        Assert.assertEquals(successmessageText, "Your account has been created.", "Expected message is not on the page");
+        String successMessageText = myAccountPage.getAlert();
+        Assert.assertEquals(successMessageText, "Your account has been created.", "Expected message is not on the page");
     }
 }

@@ -30,9 +30,9 @@ public class SignInSteps {
         myAccountPage.isPageOpened();
     }
 
-    @Step("Getting error message when login is wrong")
+    @Step("Getting error message when password is wrong")
     public void errorLoginMessage(String email, String password) {
-        log.info("Getting error message when login is wrong");
+        log.info("Getting error message when password is wrong");
         authenticationPage.openAuthenticationPage();
         authenticationPage.isPageOpened();
         authenticationPage.enterEmail(email);
