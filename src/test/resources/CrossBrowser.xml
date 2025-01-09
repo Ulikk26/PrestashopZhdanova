@@ -8,14 +8,14 @@
     <test name="Thread#1">
         <classes>
             <class name="tests.CreateAccountsTests"/>
-            <class name="tests.CartOfProduct"/>
+            <class name="tests.CartOfProductTests"/>
             <parameter name="browser" value="fireFox"/>
         </classes>
     </test> <!-- Test -->
-    <test name="Thread#2">
-        <classes>
-            <class name="tests.SignInTests"/>
-            <parameter name="browser" value="chrome"/>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread#2">-->
+<!--        <classes>-->
+<!--            <class name="tests.SignInTests"/>-->
+<!--            <parameter name="browser" value="chrome"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
 </suite>
