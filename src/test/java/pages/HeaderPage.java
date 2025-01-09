@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
-import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
@@ -22,12 +21,6 @@ public class HeaderPage {
     MyAccountPage myAccountPage =new MyAccountPage();
     ProductsPage productsPage = new ProductsPage();
 
-    @Step ("Logout button is displayed")
-    public void  logoutButtonIsDisplayed(){
-        $(LOGOUT_BUTTON).isDisplayed();
-
-    }
-
     @Step("Open HeaderUserInfoPage page")
     public HeaderPage openHeaderPage() {
         log.info("Open the HeaderUserInfoPage");
@@ -35,6 +28,11 @@ public class HeaderPage {
         return this;
     }
 
+    @Step ("Logout button is displayed")
+    public void  logoutButtonIsDisplayed(){
+        log.info("Logout button is displayed");
+        $(LOGOUT_BUTTON).isDisplayed();
+    }
 
     @Step("Header User Info is opened")
     public HeaderPage isPageOpened() {
