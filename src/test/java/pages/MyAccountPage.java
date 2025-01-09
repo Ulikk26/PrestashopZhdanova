@@ -1,21 +1,19 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-@Data
+
 @Log4j2
 public class MyAccountPage {
 
-    private  final SelenideElement SUCCESS_ALERT = $(By.xpath("//p[@class='alert alert-success']")),
-            HOME_BUTTON = $(By.xpath("//a[@title='Home']"));
+    private final By SUCCESS_ALERT = By.xpath("//p[@class='alert alert-success']"),
+            HOME_BUTTON = By.xpath("//a[@title='Home']");
 
     @Step("Login page is opened")
     public MyAccountPage isPageOpened() {
@@ -23,4 +21,11 @@ public class MyAccountPage {
         $(HOME_BUTTON).shouldBe(Condition.visible);
         return this;
     }
+
+    @Step ("Get alert")
+    public String  getAlert(){
+        String alert=$(SUCCESS_ALERT).getText();
+        return alert;
+    }
+
 }

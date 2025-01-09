@@ -14,14 +14,20 @@ import wrappers.RadioButton;
 
 import static com.codeborne.selenide.Selenide.$;
 
-@Data
+
 @Log4j2
 public class PersonalInformationPage {
 
-    private  final SelenideElement REGISTER_BUTTON = $(By.xpath("//button[@id='submitAccount']")),
-            EMAIL =$(By.xpath( "//input[@id='email']")),
-            CHECKBOX_NEWSLETTERS = $(By.xpath("//input[@name='newsletter']")),
-            CHECKBOX_OFFERS =$(By.xpath( "//input[@name='optin']"));
+    private  final By REGISTER_BUTTON = By.xpath("//button[@id='submitAccount']"),
+            EMAIL =By.xpath( "//input[@id='email']"),
+            CHECKBOX_NEWSLETTERS = By.xpath("//input[@name='newsletter']"),
+            CHECKBOX_OFFERS =By.xpath( "//input[@name='optin']");
+
+    @Step ("Get email from email input")
+    public String  getEmail(){
+        String email=$(EMAIL).getAttribute("value");
+        return email;
+    }
 
     @Step("Create account page is opened")
     public PersonalInformationPage isPageOpened() {
@@ -61,7 +67,7 @@ public class PersonalInformationPage {
         $(CHECKBOX_OFFERS).click();
     }
 
-    @Step("Click Register button ")
+    @Step("Click Register button")
     public void clickRegisterButton() {
         log.info("Click the register button");
         $(REGISTER_BUTTON).click();

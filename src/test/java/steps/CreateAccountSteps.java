@@ -8,26 +8,25 @@ import pages.*;
 
 public class CreateAccountSteps {
 
-    MainPage mainPage;
-    HeaderUserInfoPage headerUserInfoPage;
+    HeaderPage headerPage;
     AuthenticationPage authenticationPage;
     PersonalInformationPage personalInformationPage;
     MyAccountPage myAccountPage;
 
     public CreateAccountSteps() {
-        mainPage = new MainPage();
+
         authenticationPage = new AuthenticationPage();
         personalInformationPage = new PersonalInformationPage();
         myAccountPage = new MyAccountPage();
-        headerUserInfoPage = new HeaderUserInfoPage();
+        headerPage = new HeaderPage();
     }
 
     @Step("Open 'CREATE AN ACCOUNT' page")
     public void openCreateAccountPage() {
-        mainPage.openMainPage();
-        mainPage.isPageOpened();
-        headerUserInfoPage.clickLoginButton();
-        String expectedName = authenticationPage.getFORM_TITLE().getText();
+        headerPage.openHeaderPage();
+        headerPage.isPageOpened();
+        headerPage.clickLoginButton();
+        String expectedName = authenticationPage.getFormTitle();
         Assert.assertEquals(expectedName, "CREATE AN ACCOUNT", "Expected name does not on the page");
     }
 
@@ -37,7 +36,7 @@ public class CreateAccountSteps {
         authenticationPage.enterNewEmail(email);
         authenticationPage.clickCreateAccountButton();
         personalInformationPage.isPageOpened();
-        String attributeText = personalInformationPage.getEMAIL().getAttribute("value");
+        String attributeText = personalInformationPage.getEmail();
         Assert.assertEquals(attributeText, email, "Expected email does not on the page");
     }
 
@@ -47,7 +46,7 @@ public class CreateAccountSteps {
         personalInformationPage.createAccount(personalInformation);
         personalInformationPage.clickRegisterButton();
         myAccountPage.isPageOpened();
-        String successMassageText = myAccountPage.getSUCCESS_ALERT().getText();
+        String successMassageText = myAccountPage.getAlert();
         Assert.assertEquals(successMassageText, "Your account has been created.", "Expected massage does not on the page");
     }
 }
