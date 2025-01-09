@@ -8,12 +8,13 @@
     <test name="Thread#1">
         <classes>
             <class name="tests.CreateAccountsTests"/>
+            <class name="tests.CartOfProduct"/>
             <parameter name="browser" value="fireFox"/>
         </classes>
     </test> <!-- Test -->
     <test name="Thread#2">
         <classes>
-            <class name="tests.SingInTests"/>
+            <class name="tests.SignInTests"/>
             <parameter name="browser" value="chrome"/>
         </classes>
     </test> <!-- Test -->
