@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","11133","Verifying added product to cart","Surefire suite","Thu Jan 09 17:16:20 GMT 2025","passed","Thu Jan 09 17:16:31 GMT 2025","tests.CartOfProductTests","Surefire test","tests.CartOfProductTests","checkAddedProductToCart"
+"","10926","Verifying the price of added product","Surefire suite","Thu Jan 09 17:16:43 GMT 2025","passed","Thu Jan 09 17:16:54 GMT 2025","tests.CartOfProductTests","Surefire test","tests.CartOfProductTests","checkPriceAddedProduct"
+"","5747","Verifying logout from account","Surefire suite","Thu Jan 09 17:17:07 GMT 2025","passed","Thu Jan 09 17:17:13 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkLogoutFromAccount"
+"","5800","Verifying login with valid data","Surefire suite","Thu Jan 09 17:17:01 GMT 2025","passed","Thu Jan 09 17:17:07 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkLoginWithValidData"
+"","10878","Verifying count product","Surefire suite","Thu Jan 09 17:16:31 GMT 2025","passed","Thu Jan 09 17:16:42 GMT 2025","tests.CartOfProductTests","Surefire test","tests.CartOfProductTests","checkCountOfProduct"
+"","26818","Verifying account creation","Surefire suite","Thu Jan 09 17:15:52 GMT 2025","passed","Thu Jan 09 17:16:18 GMT 2025","tests.CreateAccountsTests","Surefire test","tests.CreateAccountsTests","checkCreateAccount"
+"","5567","Verifying error message when login with wrong password","Surefire suite","Thu Jan 09 17:16:55 GMT 2025","passed","Thu Jan 09 17:17:00 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkErrorMessageLoginWithInvalidData"
