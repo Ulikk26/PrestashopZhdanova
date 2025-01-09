@@ -3,7 +3,10 @@ package steps;
 import io.qameta.allure.Step;
 import models.PersonalInformation;
 import org.testng.Assert;
-import pages.*;
+import pages.AuthenticationPage;
+import pages.HeaderPage;
+import pages.MyAccountPage;
+import pages.PersonalInformationPage;
 
 
 public class CreateAccountSteps {

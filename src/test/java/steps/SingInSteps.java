@@ -1,13 +1,13 @@
 package steps;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.AuthenticationPage;
 import pages.HeaderPage;
 import pages.MyAccountPage;
 
 public class SingInSteps {
+
     HeaderPage headerPage;
     AuthenticationPage authenticationPage;
     MyAccountPage myAccountPage;

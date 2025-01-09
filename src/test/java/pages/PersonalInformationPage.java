@@ -1,14 +1,11 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.Builder;
-import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import models.PersonalInformation;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import wrappers.Input;
 import wrappers.RadioButton;
 
