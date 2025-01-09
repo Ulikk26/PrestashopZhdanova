@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30357","Verifying account creation","Surefire suite","Thu Jan 09 08:50:06 GMT 2025","passed","Thu Jan 09 08:50:36 GMT 2025","tests.CreateAccountsTests","Surefire test","tests.CreateAccountsTests","checkCreateAccount"
+"","7274","Verifying login with valid data","Surefire suite","Thu Jan 09 08:50:45 GMT 2025","passed","Thu Jan 09 08:50:52 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkLoginWithValidData"
+"","7180","Verifying error message when login with wrong password","Surefire suite","Thu Jan 09 08:50:37 GMT 2025","passed","Thu Jan 09 08:50:44 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkErrorMessageLoginWithInvalidData"
+"","7240","Verifying logout from account","Surefire suite","Thu Jan 09 08:50:53 GMT 2025","passed","Thu Jan 09 08:51:00 GMT 2025","tests.SignInTests","Surefire test","tests.SignInTests","checkLogoutFromAccount"
