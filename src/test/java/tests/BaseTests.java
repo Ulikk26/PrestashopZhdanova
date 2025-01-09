@@ -51,7 +51,7 @@ public class BaseTests {
             options.addArguments("--start-maximized");
             Configuration.browserCapabilities = options;
             Configuration.browser = "firefox";
-            Configuration.headless = false;
+            Configuration.headless = true;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
             Configuration.baseUrl = baseUrl;
