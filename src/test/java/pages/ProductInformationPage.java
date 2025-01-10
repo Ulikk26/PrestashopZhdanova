@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -20,9 +21,9 @@ public class ProductInformationPage {
         return this;
     }
 
-    @Step("Click by add to cart button")
+    @Step("Click the 'Add to cart' button")
     public void clickByAddToCart() {
-        log.info("Click by add to cart button");
+        log.info("Clicking the 'Add to cart' button");
         $(ADD_TO_CART_BUTTON).click();
     }
 }

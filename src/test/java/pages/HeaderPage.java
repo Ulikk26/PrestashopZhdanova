@@ -18,20 +18,13 @@ public class HeaderPage {
     private final String CATEGORY_BUTTON = "//a[@title='%s']";
 
     AuthenticationPage authenticationPage = new AuthenticationPage();
-    MyAccountPage myAccountPage =new MyAccountPage();
     ProductsPage productsPage = new ProductsPage();
 
-    @Step("Open HeaderPage page")
+    @Step("Open the Header page")
     public HeaderPage openHeaderPage() {
-        log.info("Open the HeaderPage");
+        log.info("Open the Header page");
         open("http://prestashop.qatestlab.com.ua/ru/");
         return this;
-    }
-
-    @Step ("Logout button is displayed")
-    public void  logoutButtonIsDisplayed(){
-        log.info("Logout button is displayed");
-        $(LOGOUT_BUTTON).shouldBe(Condition.visible);
     }
 
     @Step("Header page is opened")
@@ -41,16 +34,16 @@ public class HeaderPage {
         return this;
     }
 
-    @Step("Click login button")
-    public MyAccountPage clickLoginButton() {
-        log.info("Click the login button");
+    @Step("Click the 'Login' button")
+    public AuthenticationPage clickLoginButton() {
+        log.info("Click the 'Login' button");
         $(LOGIN_BUTTON).click();
-        return myAccountPage;
+        return authenticationPage;
     }
 
-    @Step("Click logout button")
+    @Step("Click the 'Logout' button")
     public AuthenticationPage clickLogoutButton() {
-        log.info("Click the logout button");
+        log.info("Click the 'Logout' button");
         $(LOGOUT_BUTTON).click();
         return authenticationPage;
     }

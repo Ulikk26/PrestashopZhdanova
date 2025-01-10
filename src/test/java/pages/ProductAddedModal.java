@@ -12,7 +12,11 @@ import static com.codeborne.selenide.Selenide.$;
 public class ProductAddedModal {
 
     private final By MESSAGE = By.xpath("//i[@class='icon-ok']//ancestor:: h2"),
+            CLOSE_BUTTON = By.xpath("//span[@class='cross']"),
             PROCEED_TO_CHECKOUT = By.xpath("//a[@title='Proceed to checkout']");
+
+    ShoppingCartSummaryPage shoppingCartSummaryPage = new ShoppingCartSummaryPage();
+    ProductsPage productsPage = new ProductsPage();
 
     @Step("ProductAddedModal is opened")
     public ProductAddedModal isPageOpened() {
@@ -21,16 +25,23 @@ public class ProductAddedModal {
         return this;
     }
 
-    @Step("Click by proceed to checkout")
-    public void clickByProceedToCheckout() {
-        log.info("Click by Proceed to checkout");
+    @Step("Click the 'Proceed to checkout' button")
+    public ShoppingCartSummaryPage clickByProceedToCheckout() {
+        log.info("Clicking the 'Proceed to checkout' button");
         $(PROCEED_TO_CHECKOUT).click();
+        return shoppingCartSummaryPage;
     }
 
-    @Step("Getting success message")
-    public String getmessage() {
+    @Step("Get the success message that product is added to cart")
+    public String getMessage() {
         log.info("Getting the success message that product is added to cart");
         String message = $(MESSAGE).getText();
         return message;
+    }
+
+    @Step("Click the close button")
+    public ProductsPage clickCloseButton() {
+        $(CLOSE_BUTTON).click();
+        return productsPage;
     }
 }

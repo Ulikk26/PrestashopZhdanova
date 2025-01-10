@@ -1,9 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,16 +20,25 @@ public class AuthenticationPage {
             SIGN_IN_BUTTON = By.xpath("//button[@id='SubmitLogin']"),
             ERROR_MESSAGE = By.xpath("//div[@class='alert alert-danger']//li");
 
-    @Step ("Getting the form title")
+    PersonalInformationPage personalInformationPage = new PersonalInformationPage();
+
+    @Step("Get the form title")
     public String  getFormTitle(){
         log.info("Getting the form title");
         String title=$(FORM_TITLE).getText();
         return title;
     }
 
+    @Step("Sing in button is visible")
+    public boolean isSingInVisible() {
+        log.info("Sing in button is visible");
+        $(SIGN_IN_BUTTON).shouldBe(Condition.visible);
+        return true;
+    }
+
     @Step("Open Authentication page")
     public AuthenticationPage openAuthenticationPage() {
-        log.info("Open the authentication page");
+        log.info("Opening the authentication page");
         open("authentication");
         return this;
     }
@@ -43,37 +50,39 @@ public class AuthenticationPage {
         return this;
     }
 
-    @Step("Enter new email for registration")
+    @Step("Enter a new email {email} for registration")
     public AuthenticationPage enterNewEmail(String email) {
-        log.info("Enter new email for registration");
+        log.info("Entering a new email {} for registration", email);
         $(EMAIL_CREATED_FIELD).sendKeys(email);
         return this;
     }
 
-    @Step("Enter email {email} for login")
+    @Step("Enter the email {email} for login")
     public AuthenticationPage enterEmail(String email) {
-        log.info("Entering the email for login");
+        log.info("Entering the email {} for login", email);
         $(EMAIL_FIELD).sendKeys(email);
         return this;
     }
 
-    @Step("Enter password {password} for login")
+    @Step("Enter the password {password} for login")
     public AuthenticationPage enterPassword(String password) {
-        log.info("Enter the password for login");
+        log.info("Entering the password {} for login", password);
         $(PASSWORD_FIELD).sendKeys(password);
         return this;
     }
 
-    @Step("Click create account button")
-    public void clickCreateAccountButton() {
-        log.info("Click the create account button");
+    @Step("Click the 'Create account' button")
+    public PersonalInformationPage clickCreateAccountButton() {
+        log.info("Clicking the 'Create account' button");
         $(CREATE_ACCOUNT_BUTTON).click();
+        return personalInformationPage;
     }
 
-    @Step("Click Sign in button")
-    public void clickSignInButton() {
-        log.info("Click Sign in button");
+    @Step("Click the 'Sign in' button")
+    public AuthenticationPage clickSignInButton() {
+        log.info("Clicking the 'Sign in' button");
         $(SIGN_IN_BUTTON).click();
+        return this;
     }
 
     @Step("Ger error message")

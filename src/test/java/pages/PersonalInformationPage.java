@@ -20,6 +20,8 @@ public class PersonalInformationPage {
             CHECKBOX_NEWSLETTERS = By.xpath("//input[@name='newsletter']"),
             CHECKBOX_OFFERS =By.xpath( "//input[@name='optin']");
 
+    MyAccountPage myAccountPage = new MyAccountPage();
+
     @Step ("Get email from email input")
     public String  getEmail(){
         log.info("Getting the email from email input");
@@ -54,20 +56,23 @@ public class PersonalInformationPage {
     }
 
     @Step("Click newsletter checkbox")
-    public void clickAgreementNewslettersCheckbox() {
+    public PersonalInformationPage clickAgreementNewslettersCheckbox() {
         log.info("Click the newsletters checkbox");
         $(CHECKBOX_NEWSLETTERS).click();
+        return this;
     }
 
     @Step("Click offers checkbox")
-    public void clickOffersCheckbox() {
+    public PersonalInformationPage clickOffersCheckbox() {
         log.info("Click the Offers checkbox");
         $(CHECKBOX_OFFERS).click();
+        return this;
     }
 
     @Step("Click Register button")
-    public void clickRegisterButton() {
+    public MyAccountPage clickRegisterButton() {
         log.info("Click the register button");
         $(REGISTER_BUTTON).click();
+        return myAccountPage;
     }
 }

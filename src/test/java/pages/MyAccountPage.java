@@ -11,7 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class MyAccountPage {
 
-    private final By SUCCESS_ALERT = By.xpath("//p[@class='alert alert-success']"),
+    private final By SUCCESS_REGISTRATION_ALERT = By.xpath("//p[@class='alert alert-success']"),
+            WELCOME_ACCOUNT = By.xpath("//p[@class='info-account']"),
             HOME_BUTTON = By.xpath("//a[@title='Home']");
 
     @Step("My account page is opened")
@@ -21,10 +22,17 @@ public class MyAccountPage {
         return this;
     }
 
-    @Step ("Getting the alert")
+    @Step("Get the success registration alert")
     public String  getAlert(){
-        log.info("Getting the alert");
-        String alert=$(SUCCESS_ALERT).getText();
+        log.info("Getting the success registration alert");
+        String alert = $(SUCCESS_REGISTRATION_ALERT).getText();
         return alert;
+    }
+
+    @Step("Get the Welcome text")
+    public String getWelcomeText() {
+        log.info("Getting the Welcome text");
+        String welcomeText = $(WELCOME_ACCOUNT).getText();
+        return welcomeText;
     }
 }

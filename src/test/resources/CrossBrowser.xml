@@ -2,19 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="PrestashopZhdanova SmokeTest" parallel="classes">
     <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
         <listener class-name="tests.AnnotationTransformer"/>
         <listener class-name="tests.TestListener"/>
     </listeners>
     <test name="Thread#1">
         <classes>
-            <class name="tests.CreateAccountsTests"/>
-            <class name="tests.CartOfProductTests"/>
+            <class name="tests.CreateAccountTest"/>
+            <class name="tests.ProductTest"/>
             <parameter name="browser" value="fireFox"/>
         </classes>
     </test> <!-- Test -->
     <test name="Thread#2">
         <classes>
-            <class name="tests.SignInTests"/>
+            <class name="tests.SignInTest"/>
             <parameter name="browser" value="chrome"/>
         </classes>
     </test> <!-- Test -->
