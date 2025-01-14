@@ -1,9 +1,10 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import models.PersonalInformation;
 import org.testng.annotations.Test;
+import tests.Base.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 
@@ -18,8 +19,12 @@ public class CreateAccountTest extends BaseTest {
             .password("12345")
             .build();
 
-    @Test(testName = "Checking account creation", description = "Checking account creation")
-    @Description("Checking account creation")
+    @Epic("Create account module of an online store" )
+    @Feature("Create account")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the account creation", description = "Checking the account creation")
+    @Description("Checking the account creation")
     public void checkCreateAccount() {
         createAccountSteps.openAuthenticationPage();
         createAccountSteps.openPersonalInformationPage(faker.internet().emailAddress());

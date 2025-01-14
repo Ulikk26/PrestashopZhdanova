@@ -1,4 +1,4 @@
-package tests;
+package tests.Base;
 
 import lombok.extern.log4j.Log4j2;
 import org.testng.ITestContext;

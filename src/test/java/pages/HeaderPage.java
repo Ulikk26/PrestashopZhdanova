@@ -1,9 +1,11 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -20,10 +22,12 @@ public class HeaderPage {
     AuthenticationPage authenticationPage = new AuthenticationPage();
     ProductsPage productsPage = new ProductsPage();
 
+
+
     @Step("Open the Header page")
     public HeaderPage openHeaderPage() {
         log.info("Open the Header page");
-        open("http://prestashop.qatestlab.com.ua/ru/");
+        open(Configuration.baseUrl);
         return this;
     }
 

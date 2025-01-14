@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class ProductAddedModal {
 
-    private final By MESSAGE = By.xpath("//i[@class='icon-ok']//ancestor:: h2"),
+    private static final By MESSAGE = By.xpath("//i[@class='icon-ok']//ancestor:: h2"),
             CLOSE_BUTTON = By.xpath("//span[@class='cross']"),
             PROCEED_TO_CHECKOUT = By.xpath("//a[@title='Proceed to checkout']");
 

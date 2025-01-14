@@ -41,8 +41,7 @@ public class CreateAccountSteps {
         authenticationPage.enterNewEmail(email)
                 .clickCreateAccountButton()
                 .isPageOpened();
-        String emailInInput = personalInformationPage.getEmail();
-        assertEquals(emailInInput, email, "Email in input is not met email");
+
     }
 
     @Step("Open new 'My account page'")

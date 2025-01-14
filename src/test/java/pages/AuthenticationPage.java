@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 @Log4j2
 public class AuthenticationPage {
 
-    private final By EMAIL_CREATED_FIELD =By.xpath("//input[@id='email_create']"),
+    private static final By EMAIL_CREATED_FIELD =By.xpath("//input[@id='email_create']"),
             CREATE_ACCOUNT_BUTTON =By.xpath("//button[@id='SubmitCreate']"),
             FORM_TITLE =By.xpath( "//h3[@class='page-subheading']"),
             EMAIL_FIELD =By.xpath( "//input[@id='email']"),

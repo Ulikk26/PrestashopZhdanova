@@ -1,15 +1,20 @@
 package tests;
 
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
+import tests.Base.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class SignInTest extends BaseTest {
 
-    @Test(testName = "Checking login with valid data", description = "Checking login with valid data")
-    @Description("Checking login with valid data")
+    @Epic("Login module of an online store" )
+    @Feature("Login to the online store")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the login with credentials", description = "Checking the login with credentials")
+    @Description("Checking the login with credentials")
     public void checkLoginWithValidData() {
         signInSteps.enterCredention(email, password);
         String welcomeText = myAccountPage.getWelcomeText();
@@ -18,6 +23,10 @@ public class SignInTest extends BaseTest {
                 "Expected text is not on the page");
     }
 
+    @Epic("Login module of an online store" )
+    @Feature("Login to the online store")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
     @Test(testName = "Checking error message when login with wrong password", description = "Checking error message when login with wrong password")
     @Description("Checking error message when login with wrong password")
     public void checkErrorMessageLoginWithWrongPassword() {
@@ -28,8 +37,12 @@ public class SignInTest extends BaseTest {
                 " Expected error message is not on the page ");
     }
 
-    @Test(testName = "Checking logout from account", description = "Checking logout from account")
-    @Description("Checking logout from account")
+    @Epic("Login module of an online store" )
+    @Feature("Logout to the online store")
+    @Severity(SeverityLevel.NORMAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the logout from the account", description = "Checking the logout from the account")
+    @Description("Checking the logout from the account")
     public void checkLogoutFromAccount() {
         signInSteps.enterCredention(email, password);
         signInSteps.logoutFromAccount();

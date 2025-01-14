@@ -1,8 +1,8 @@
 package tests;
 
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
-
+import tests.Base.BaseTest;
 import static org.testng.Assert.assertEquals;
 
 
@@ -13,8 +13,12 @@ public class ProductTest extends BaseTest {
     String product2 = "Faded Short Sleeve T-shirts";
     String product3 = "Printed Dress";
 
-    @Test(testName = "Checking added product to cart", description = "Checking added product to cart")
-    @Description("Checking added product to cart")
+    @Epic("Cart module of an online store" )
+    @Feature("Adding  products to the cart")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the added product in the cart", description = "Checking the added product in the cart")
+    @Description("Checking the added product in the cart")
     public void checkAddedProductToCart() {
         signInSteps.enterCredention(email, password);
         productSteps.openProductCard(category, product);
@@ -26,8 +30,12 @@ public class ProductTest extends BaseTest {
                 "Name of product is not into cart page");
     }
 
-    @Test(testName = "Checking the price of added product", description = "Checking the price of added product")
-    @Description("Checking the price of added product")
+    @Epic("Cart module of an online store" )
+    @Feature("Adding products to the cart")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the price of the added product", description = "Checking the price of the added product")
+    @Description("Checking the price of the added product")
     public void checkPriceAddedProduct() {
         signInSteps.enterCredention(email, password);
         productSteps.openProductCard(category, product);
@@ -39,8 +47,12 @@ public class ProductTest extends BaseTest {
                 "The price does not meet the expected outcome");
     }
 
-    @Test(testName = "Checking count of products into cart", description = "Checking count of products into cart")
-    @Description("Checking count of products into cart")
+    @Epic("Cart module of an online store" )
+    @Feature("Adding products to the cart")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Julia Zhdanova")
+    @Test(testName = "Checking the count of products in the cart", description = "Checking the count of products in the cart")
+    @Description("Checking the count of products in the cart")
     public void checkCountOfProducts() {
         signInSteps.enterCredention(email, password);
         headerPage.clickCategory(category);
@@ -55,6 +67,4 @@ public class ProductTest extends BaseTest {
                 3,
                 "The count does not meet the expected outcome");
     }
-
-
 }

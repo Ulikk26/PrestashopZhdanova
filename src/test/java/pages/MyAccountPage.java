@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class MyAccountPage {
 
-    private final By SUCCESS_REGISTRATION_ALERT = By.xpath("//p[@class='alert alert-success']"),
+    private static final By SUCCESS_REGISTRATION_ALERT = By.xpath("//p[@class='alert alert-success']"),
             WELCOME_ACCOUNT = By.xpath("//p[@class='info-account']"),
             HOME_BUTTON = By.xpath("//a[@title='Home']");
 

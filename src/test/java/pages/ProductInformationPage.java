@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class ProductInformationPage {
 
-    private final By DATA_SHEET = By.xpath("//label[text()='Sort by']"),
+    private static final By DATA_SHEET = By.xpath("//label[text()='Sort by']"),
             ADD_TO_CART_BUTTON = By.xpath("//button[@name='Submit']");
 
     @Step("Product Information Page is opened")

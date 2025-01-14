@@ -13,9 +13,9 @@ import static com.codeborne.selenide.Selenide.$$;
 @Log4j2
 public class ShoppingCartSummaryPage {
 
-    private final By NAME_OF_PAGE = By.xpath("//h1[@id='cart_title']"),
+    private static final By NAME_OF_PAGE = By.xpath("//h1[@id='cart_title']"),
             LIST_OF_PRODUCTS = By.xpath("//tr[contains (@class, 'cart_item')]");
-    private final String NAME_OF_PRODUCT = "//tbody//p[@class='product-name']/a[contains(text(), '%s')]",
+    private static final String NAME_OF_PRODUCT = "//tbody//p[@class='product-name']/a[contains(text(), '%s')]",
             PRICE_OF_PRODUCT = "//a[contains(text(), 'Blouse')]// ancestor:: tbody//span[contains(@id, 'product_price')]/span";
 
     @Step("Shopping Cart page is opened")
@@ -43,4 +43,6 @@ public class ShoppingCartSummaryPage {
         ElementsCollection products = $$(LIST_OF_PRODUCTS);
         return products.size();
     }
+
+
 }

@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class ProductsPage {
 
-    private final By CATALOG = By.xpath("//p[text()='Catalog']");
-    private final String NAME_OF_PRODUCT = "//a[@title='%s']",
+    private static final By CATALOG = By.xpath("//p[text()='Catalog']");
+    private static final String NAME_OF_PRODUCT = "//a[@title='%s']",
             ADD_TO_CART_BUTTON = "//a[contains (text(), '%s')]//ancestor::div[@class='right-block']" +
                     "//span[text()='Add to cart']";
 

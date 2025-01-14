@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Log4j2
 public class PersonalInformationPage {
 
-    private  final By REGISTER_BUTTON = By.xpath("//button[@id='submitAccount']"),
+    private static   final By REGISTER_BUTTON = By.xpath("//button[@id='submitAccount']"),
             EMAIL =By.xpath( "//input[@id='email']"),
             CHECKBOX_NEWSLETTERS = By.xpath("//input[@name='newsletter']"),
             CHECKBOX_OFFERS =By.xpath( "//input[@name='optin']");

@@ -1,4 +1,4 @@
-package tests;
+package tests.Base;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -15,27 +15,28 @@ import steps.CreateAccountSteps;
 import steps.ProductSteps;
 import steps.SignInSteps;
 import utils.PropertyReader;
+import utils.ScreenshotUtil;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 @Log4j2
 public class BaseTest {
-    HeaderPage headerPage;
-    AuthenticationPage authenticationPage;
-    MyAccountPage myAccountPage;
-    ShoppingCartSummaryPage shoppingCartSummaryPage;
-    ProductsPage productsPage;
-    ProductAddedModal productAddedModal;
+    protected HeaderPage headerPage;
+    protected AuthenticationPage authenticationPage;
+    protected MyAccountPage myAccountPage;
+    protected ShoppingCartSummaryPage shoppingCartSummaryPage;
+    protected ProductsPage productsPage;
+    protected ProductAddedModal productAddedModal;
+    protected PersonalInformationPage personalInformationPage;
 
-    CreateAccountSteps createAccountSteps;
-    SignInSteps signInSteps;
-    ProductSteps productSteps;
+    protected CreateAccountSteps createAccountSteps;
+    protected SignInSteps signInSteps;
+    protected ProductSteps productSteps;
 
-
-    String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
-    String email = System.getProperty("email", PropertyReader.getProperty("email"));
-    String password = System.getProperty("password", PropertyReader.getProperty("password"));
-    String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
+    protected String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
+    protected String email = System.getProperty("email", PropertyReader.getProperty("email"));
+    protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
+    protected String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -44,30 +45,25 @@ public class BaseTest {
 
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--allow-insecure-localhost");
-            options.addArguments("--disable-web-security");
-            options.addArguments("--ignore-certificate-errors");
-            options.addArguments("--unsafely-treat-insecure-origin-as-secure=http://prestashop.qatestlab.com.ua");
             Configuration.browserCapabilities = options;
             Configuration.browserSize = "1920x1080";
             Configuration.browser = "chrome";
-//            Configuration.headless = true;
+            Configuration.headless = true;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
-            Configuration.baseUrl = baseUrl;
             Configuration.reportsFolder = "target/allure-results";
+            Configuration.baseUrl =baseUrl;
         } else if (browser.equalsIgnoreCase("fireFox")) {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("-headless");
             Configuration.browserCapabilities = options;
             Configuration.browserSize = "1920x1080";
             Configuration.browser = "firefox";
-//            Configuration.headless = true;
+            Configuration.headless = false;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
-            Configuration.baseUrl = baseUrl;
             Configuration.reportsFolder = "target/allure-results";
+            Configuration.baseUrl =baseUrl;
         }
 
         headerPage = new HeaderPage();
@@ -76,6 +72,7 @@ public class BaseTest {
         shoppingCartSummaryPage = new ShoppingCartSummaryPage();
         productAddedModal = new ProductAddedModal();
         productsPage = new ProductsPage();
+        personalInformationPage =new PersonalInformationPage();
 
         createAccountSteps = new CreateAccountSteps();
         signInSteps = new SignInSteps();
@@ -88,8 +85,9 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void close() {
-        log.info("Close browser");
-        closeWebDriver();
-    }
+        public void close() {
+            log.info("Close browser");
+            ScreenshotUtil.attachScreenshot("Screenshot before closing the browser");
+            closeWebDriver();
+        }
 }
