@@ -44,8 +44,8 @@ public class BaseTest {
         log.info("Open browser {}", browser);
 
         if (browser.equalsIgnoreCase("chrome")) {
-            ChromeOptions options = new ChromeOptions();
-            Configuration.browserCapabilities = options;
+//            ChromeOptions options = new ChromeOptions();
+//            Configuration.browserCapabilities = options;
             Configuration.browserSize = "1920x1080";
             Configuration.browser = "chrome";
             Configuration.headless = true;
