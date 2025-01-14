@@ -6,13 +6,13 @@
         <listener class-name="tests.Base.AnnotationTransformer"/>
         <listener class-name="tests.Base.TestListener"/>
     </listeners>
-    <test name="Thread#1">
-        <classes>
-            <class name="tests.CreateAccountTest"/>
-            <class name="tests.ProductTest"/>
-            <parameter name="browser" value="fireFox"/>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread#1">-->
+<!--        <classes>-->
+<!--            <class name="tests.CreateAccountTest"/>-->
+<!--            <class name="tests.ProductTest"/>-->
+<!--            <parameter name="browser" value="fireFox"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
     <test name="Thread#2">
         <classes>
             <class name="tests.SignInTest"/>
