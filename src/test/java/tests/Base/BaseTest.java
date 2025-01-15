@@ -55,11 +55,10 @@ public class BaseTest {
             Configuration.baseUrl =baseUrl;
         } else if (browser.equalsIgnoreCase("fireFox")) {
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("-headless");
             Configuration.browserCapabilities = options;
             Configuration.browserSize = "1920x1080";
             Configuration.browser = "firefox";
-            Configuration.headless = false;
+            Configuration.headless = true;
             Configuration.timeout = 10000;
             Configuration.clickViaJs = true;
             Configuration.reportsFolder = "target/allure-results";

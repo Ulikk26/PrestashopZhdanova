@@ -22,7 +22,7 @@
         <javafaker.version>1.0.2</javafaker.version>
         <log4j-core.version>2.24.2</log4j-core.version>
         <artifactId.version>2.12.3</artifactId.version>
-        <suiteXmlFile>src/test/resources/CrossBrowser.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/SmokeTest.xml</suiteXmlFile>
     </properties>
 
     <dependencyManagement>
