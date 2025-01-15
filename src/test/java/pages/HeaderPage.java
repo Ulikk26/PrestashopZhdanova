@@ -50,7 +50,7 @@ public class HeaderPage {
         return authenticationPage;
     }
 
-    @Step("Click category {} button")
+    @Step("Click category {category} button")
     public ProductsPage clickCategory(String category) {
         log.info("Click category button: {}", category);
         $(By.xpath(String.format(CATEGORY_BUTTON, category))).click();
