@@ -21,7 +21,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +32,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-     run: mvn clean test  -DsuiteXmlFile='src/test/resources/SmokeTest.xml' -Demail=$EMAIL -Dpassword=$PASSWORD
+      run: mvn clean test  -DsuiteXmlFile='src/test/resources/SmokeTest.xml' -Demail=$EMAIL -Dpassword=$PASSWORD
 
     - name: Get Allure history
       uses: actions/checkout@v2
