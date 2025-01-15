@@ -21,28 +21,26 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 @Log4j2
 public class BaseTest {
-    protected HeaderPage headerPage;
-    protected AuthenticationPage authenticationPage;
-    protected MyAccountPage myAccountPage;
-    protected ShoppingCartSummaryPage shoppingCartSummaryPage;
-    protected ProductsPage productsPage;
-    protected ProductAddedModal productAddedModal;
-    protected PersonalInformationPage personalInformationPage;
+    protected static HeaderPage headerPage;
+    protected static AuthenticationPage authenticationPage;
+    protected static MyAccountPage myAccountPage;
+    protected static ShoppingCartSummaryPage shoppingCartSummaryPage;
+    protected static ProductsPage productsPage;
+    protected static ProductAddedModal productAddedModal;
+    protected static PersonalInformationPage personalInformationPage;
+    protected static CreateAccountSteps createAccountSteps;
+    protected static SignInSteps signInSteps;
+    protected static ProductSteps productSteps;
 
-    protected CreateAccountSteps createAccountSteps;
-    protected SignInSteps signInSteps;
-    protected ProductSteps productSteps;
-
-    protected String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
-    protected String email = System.getProperty("email", PropertyReader.getProperty("email"));
-    protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
-    protected String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
+    protected static String baseUrl = System.getProperty("baseUrl", PropertyReader.getProperty("baseUrl"));
+    protected static String email = System.getProperty("email", PropertyReader.getProperty("email"));
+    protected static String password = System.getProperty("password", PropertyReader.getProperty("password"));
+    protected static String wrongPassword = System.getProperty("wrongPassword", PropertyReader.getProperty("wrongPassword"));
 
     @Parameters({"browser"})
     @BeforeMethod
     public void setUp(@Optional("fireFox") String browser) {
         log.info("Open browser {}", browser);
-
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             Configuration.browserCapabilities = options;
@@ -72,7 +70,6 @@ public class BaseTest {
         productAddedModal = new ProductAddedModal();
         productsPage = new ProductsPage();
         personalInformationPage =new PersonalInformationPage();
-
         createAccountSteps = new CreateAccountSteps();
         signInSteps = new SignInSteps();
         productSteps =new ProductSteps();

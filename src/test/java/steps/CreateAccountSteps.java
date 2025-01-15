@@ -19,7 +19,6 @@ public class CreateAccountSteps {
     MyAccountPage myAccountPage;
 
     public CreateAccountSteps() {
-
         authenticationPage = new AuthenticationPage();
         personalInformationPage = new PersonalInformationPage();
         myAccountPage = new MyAccountPage();
@@ -41,7 +40,6 @@ public class CreateAccountSteps {
         authenticationPage.enterNewEmail(email)
                 .clickCreateAccountButton()
                 .isPageOpened();
-
     }
 
     @Step("Open new 'My account page'")

@@ -14,9 +14,11 @@ import static com.codeborne.selenide.Selenide.$$;
 public class ShoppingCartSummaryPage {
 
     private static final By NAME_OF_PAGE = By.xpath("//h1[@id='cart_title']"),
-            LIST_OF_PRODUCTS = By.xpath("//tr[contains (@class, 'cart_item')]");
+            LIST_OF_PRODUCTS = By.xpath("//tr[contains (@class, 'cart_item')]"),
+            EMPTY_CART_MESSAGE = By.xpath("//p[@class='alert alert-warning']");
     private static final String NAME_OF_PRODUCT = "//tbody//p[@class='product-name']/a[contains(text(), '%s')]",
-            PRICE_OF_PRODUCT = "//a[contains(text(), 'Blouse')]// ancestor:: tbody//span[contains(@id, 'product_price')]/span";
+            PRICE_OF_PRODUCT = "//a[contains(text(), '%s')]// ancestor:: tbody//span[contains(@id, 'product_price')]/span",
+            DELETE_BUTTON = "//a[contains(text(), '%s')]// ancestor:: tbody//a[@title='Delete']";
 
     @Step("Shopping Cart page is opened")
     public ShoppingCartSummaryPage isPageOpened() {
@@ -44,5 +46,14 @@ public class ShoppingCartSummaryPage {
         return products.size();
     }
 
+    @Step("Click the Delete button")
+    public ShoppingCartSummaryPage clickDeleteButton(String product) {
+        $(By.xpath(String.format(DELETE_BUTTON, product))).click();
+        return this;
+    }
 
+    @Step("Get the message about empty cart")
+    public String getEmptyCartMessage() {
+        return $(EMPTY_CART_MESSAGE).getText();
+    }
 }

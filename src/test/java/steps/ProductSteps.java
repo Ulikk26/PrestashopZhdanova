@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import pages.*;
 
+import static com.codeborne.selenide.Selenide.refresh;
 import static com.codeborne.selenide.Selenide.sleep;
 
 @Log4j2
@@ -59,5 +60,12 @@ public class ProductSteps {
     public void clickCloseButton() {
         productAddedModal.clickCloseButton()
                 .isPageOpened();
+    }
+
+    @Step("Delete the product from the cart")
+    public void deleteProduct(String product) {
+        shoppingCartSummaryPage.isPageOpened()
+                .clickDeleteButton(product);
+        refresh();
     }
 }

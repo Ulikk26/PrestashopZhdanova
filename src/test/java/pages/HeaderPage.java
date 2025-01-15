@@ -22,8 +22,6 @@ public class HeaderPage {
     AuthenticationPage authenticationPage = new AuthenticationPage();
     ProductsPage productsPage = new ProductsPage();
 
-
-
     @Step("Open the Header page")
     public HeaderPage openHeaderPage() {
         log.info("Open the Header page");
