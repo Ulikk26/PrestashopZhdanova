@@ -16,21 +16,11 @@ public class ProductSteps {
     ProductAddedModal productAddedModal =new ProductAddedModal();
     ShoppingCartSummaryPage shoppingCartSummaryPage =new ShoppingCartSummaryPage();
 
-
-//    @Step ("Click the 'Add to cart")
-//    public void clickAddToCart (String product){
-//        log.info("Click add to cart");
-//        productsPage.clickByProduct(product)
-//                .isPageOpened()
-//                .clickByAddToCart();
-//    }
-
     @Step("Open the 'Product card' page")
     public void openProductCard(String category, String product) {
         headerPage.clickCategory(category);
         productsPage.clickByProduct(product);
     }
-
 
     @Step ("Open product added modal")
         public void openProductAddedModal (String product){

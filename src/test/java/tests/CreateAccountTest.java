@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 import io.qameta.allure.*;
 import models.PersonalInformation;
 import org.testng.annotations.Test;
-import tests.Base.BaseTest;
+import tests.base.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 

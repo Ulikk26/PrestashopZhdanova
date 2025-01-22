@@ -3,8 +3,8 @@
 <suite thread-count="2" name="PrestashopZhdanova SmokeTest" parallel="tests">
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-        <listener class-name="tests.Base.AnnotationTransformer"/>
-        <listener class-name="tests.Base.TestListener"/>
+        <listener class-name="tests.base.AnnotationTransformer"/>
+        <listener class-name="tests.base.TestListener"/>
     </listeners>
         <test name="Thread#1">
             <classes>
