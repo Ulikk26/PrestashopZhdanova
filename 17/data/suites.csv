@@ -1,5 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","9592","Verifying account creation","Surefire suite","Thu Jan 09 05:22:49 GMT 2025","passed","Thu Jan 09 05:22:58 GMT 2025","tests.CreateAccountsTests","Surefire test","tests.CreateAccountsTests","checkCreateAccount"
-"","6968","Verifying logout from account","Surefire suite","Thu Jan 09 05:22:41 GMT 2025","passed","Thu Jan 09 05:22:48 GMT 2025","tests.SingInTests","Surefire test","tests.SingInTests","checkLogoutFromAccount"
-"","18906","Verifying error massage when login with wrong password","Surefire suite","Thu Jan 09 05:22:14 GMT 2025","passed","Thu Jan 09 05:22:33 GMT 2025","tests.SingInTests","Surefire test","tests.SingInTests","checkErrorMassageLoginWithInvalidData"
-"","6245","Verifying login with valid data","Surefire suite","Thu Jan 09 05:22:34 GMT 2025","passed","Thu Jan 09 05:22:41 GMT 2025","tests.SingInTests","Surefire test","tests.SingInTests","checkLoginWithValidData"
